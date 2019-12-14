@@ -31,11 +31,19 @@ import SwiftUI
 struct RowView: View {
     @Binding var task: Task
     
+    let checkmark = Image(systemName: "checkmark")
+    
     var body: some View {
         NavigationLink(
             destination: TaskEditingView(task: $task)
         ) {
+            if task.isCompleted {
+                checkmark
+            } else {
+                checkmark.hidden()
+            }
             Text(task.name)
+                .strikethrough(task.isCompleted)
         }
     }
 }
