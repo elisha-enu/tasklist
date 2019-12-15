@@ -16,17 +16,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List{
-                ForEach(taskStore.tasks) { index in
-                    RowView(task: self.$taskStore.tasks[index])
-                }
-                .onMove { sourceIndices, destinationIndex in
-                    self.taskStore.tasks.move(
-                        fromOffsets: sourceIndices,
-                        toOffset: destinationIndex
-                    )
-                }
-                .onDelete{ indexSet in
-                    self.taskStore.tasks.remove(atOffsets: indexSet)
+                ForEach(taskStore.prioritizedTasks) { index in
+                    SectionView(prioritizedTask: self.$taskStore.prioritizedTasks[index])
                 }
             }
             .navigationBarTitle("Task")

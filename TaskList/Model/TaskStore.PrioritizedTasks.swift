@@ -10,7 +10,7 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
-/// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+/// Notwithstanding the foregoing,  you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
 /// instructional purposes related to programming, coding, application development,
@@ -26,56 +26,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Combine
+//
 
-//class TaskStore {
-class TaskStore: ObservableObject {
-    @Published var tasks = [
-        "Code",
-        "Sleep",
-        "Bath",
-        "Swimming with the view",
-        "Cooking",
-        "Have a holiday",
-        "Shopping"
-        ].map { Task(name: $0)}
-    
-       @Published var prioritizedTasks = [
-        PrioritizedTasks(
-            priority: .no,
-            names: [
-                "Code",
-                "Sleep",
-                "Bath"
-            ]
-        ),
-        PrioritizedTasks(
-            priority: .low,
-            tasks: [
-                Task(name: "Swimming with the view"),
-            ]
-        ),
-        PrioritizedTasks(
-           priority: .medium,
-           tasks: [
-                Task(name: "Cooking"),
-           ]
-       ),
-        PrioritizedTasks(
-           priority: .high,
-           tasks: [
-                Task(name: "Have a holiday"),
-                Task(name: "Shopping")
-           ]
-       )
-    ]
+extension TaskStore {
+    struct PrioritizedTasks {
+        // you only have 1 prioritizedTask for every priority.
+        // you can use the priority itself as an ID
+        let priority: Task.Priority
+        var tasks: [Task]
+    }
 }
 
-extension TaskStore.PrioritizedTasks {
-    init(priority: Task.Priority, names: [String]) {
-        self.init(
-            priority: priority,
-            tasks: names.map { Task(name: $0) }
-        )
+extension TaskStore.PrioritizedTasks: Identifiable {
+    // identifiable requires the id property which will be a task priority
+    var id: Task.Priority {
+        priority // computed property. a method that doesn't take any arguments
     }
 }

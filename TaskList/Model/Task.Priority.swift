@@ -26,56 +26,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Combine
-
-//class TaskStore {
-class TaskStore: ObservableObject {
-    @Published var tasks = [
-        "Code",
-        "Sleep",
-        "Bath",
-        "Swimming with the view",
-        "Cooking",
-        "Have a holiday",
-        "Shopping"
-        ].map { Task(name: $0)}
-    
-       @Published var prioritizedTasks = [
-        PrioritizedTasks(
-            priority: .no,
-            names: [
-                "Code",
-                "Sleep",
-                "Bath"
-            ]
-        ),
-        PrioritizedTasks(
-            priority: .low,
-            tasks: [
-                Task(name: "Swimming with the view"),
-            ]
-        ),
-        PrioritizedTasks(
-           priority: .medium,
-           tasks: [
-                Task(name: "Cooking"),
-           ]
-       ),
-        PrioritizedTasks(
-           priority: .high,
-           tasks: [
-                Task(name: "Have a holiday"),
-                Task(name: "Shopping")
-           ]
-       )
-    ]
-}
-
-extension TaskStore.PrioritizedTasks {
-    init(priority: Task.Priority, names: [String]) {
-        self.init(
-            priority: priority,
-            tasks: names.map { Task(name: $0) }
-        )
+extension Task {
+    enum Priority {
+        case no, low, medium, high
     }
 }
