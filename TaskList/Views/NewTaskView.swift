@@ -39,6 +39,19 @@ struct NewTaskView: View {
     var body: some View {
         Form {
             TextField("Task Name", text: self.$text)
+            
+            VStack {
+                Text("Priority")
+                
+                Picker("Priority", selection: $priority.caseIndex) {
+                    ForEach(Task.Priority.allCases.indices) { priorityIndex in
+                        Text(Task.Priority.allCases[priorityIndex].rawValue.capitalized)
+                            .tag(priorityIndex)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+            }
+            
             Button(
                 action: {
                     let priorityIndex = self.taskStore.getIndex(for: self.priority)

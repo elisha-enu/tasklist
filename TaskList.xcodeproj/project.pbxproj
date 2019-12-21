@@ -23,6 +23,7 @@
 		8CA33E4923A5444F00FBF007 /* Task.Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA33E4823A5444F00FBF007 /* Task.Priority.swift */; };
 		8CA33E4B23A5452D00FBF007 /* TaskStore.PrioritizedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA33E4A23A5452D00FBF007 /* TaskStore.PrioritizedTasks.swift */; };
 		8CA33E6623A6A29200FBF007 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA33E6523A6A29200FBF007 /* SectionView.swift */; };
+		8CA33E6823AE251D00FBF007 /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA33E6723AE251D00FBF007 /* Binding.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8CA33E4823A5444F00FBF007 /* Task.Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.Priority.swift; sourceTree = "<group>"; };
 		8CA33E4A23A5452D00FBF007 /* TaskStore.PrioritizedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.PrioritizedTasks.swift; sourceTree = "<group>"; };
 		8CA33E6523A6A29200FBF007 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		8CA33E6723AE251D00FBF007 /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				8C5B3ED023A53C2C00A893C0 /* ForEach.swift */,
 				8C5B3ED223A53C5200A893C0 /* IndexedCollection.swift */,
+				8CA33E6723AE251D00FBF007 /* Binding.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				8C5B3EC223A4B0DE00A893C0 /* TaskStore.swift in Sources */,
 				8C5B3ED323A53C5200A893C0 /* IndexedCollection.swift in Sources */,
 				8C5B3EBF23A4B0A300A893C0 /* Task.swift in Sources */,
+				8CA33E6823AE251D00FBF007 /* Binding.swift in Sources */,
 				8C5B3EC923A52FF100A893C0 /* TaskEditingView.swift in Sources */,
 				8C5B3ED123A53C2C00A893C0 /* ForEach.swift in Sources */,
 				8C5B3EC723A5143300A893C0 /* RowView.swift in Sources */,
