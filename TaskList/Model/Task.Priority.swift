@@ -27,7 +27,7 @@
 /// THE SOFTWARE.
 
 extension Task {
-    enum Priority {
+    enum Priority: String {
         case no, low, medium, high
     }
 }

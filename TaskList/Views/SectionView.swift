@@ -32,17 +32,23 @@ struct SectionView: View {
     @Binding var prioritizedTask: TaskStore.PrioritizedTasks
     
     var body: some View {
-       ForEach(prioritizedTask.tasks) { index in
-           RowView(task: self.$prioritizedTask.tasks[index])
-       }
-       .onMove { sourceIndices, destinationIndex in
-           self.prioritizedTask.tasks.move(
-               fromOffsets: sourceIndices,
-               toOffset: destinationIndex
-           )
-       }
-       .onDelete{ indexSet in
-           self.prioritizedTask.tasks.remove(atOffsets: indexSet)
-       }
+        Section(
+            header: Text(
+                "\(prioritizedTask.priority.rawValue.capitalized) Priority"
+            )
+        ) {
+            ForEach(prioritizedTask.tasks) { index in
+                RowView(task: self.$prioritizedTask.tasks[index])
+            }
+            .onMove { sourceIndices, destinationIndex in
+                self.prioritizedTask.tasks.move(
+                    fromOffsets: sourceIndices,
+                    toOffset: destinationIndex
+                )
+            }
+            .onDelete{ indexSet in
+                self.prioritizedTask.tasks.remove(atOffsets: indexSet)
+            }
+        }
     }
 }

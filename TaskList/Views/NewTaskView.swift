@@ -34,13 +34,15 @@ struct NewTaskView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var text: String = ""
+    @State var priority: Task.Priority = .no
     
     var body: some View {
         Form {
             TextField("Task Name", text: self.$text)
             Button(
                 action: {
-                    self.taskStore.tasks.append(
+                    let priorityIndex = self.taskStore.getIndex(for: self.priority)
+                    self.taskStore.prioritizedTasks[priorityIndex].tasks.append(
                         Task(name: self.text)
                     )
                     self.presentationMode .wrappedValue.dismiss() // the dismissal causing the update to occur - ini yang nyebabkan taskStore nya terupdate

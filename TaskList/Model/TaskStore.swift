@@ -30,15 +30,15 @@ import Combine
 
 //class TaskStore {
 class TaskStore: ObservableObject {
-    @Published var tasks = [
-        "Code",
-        "Sleep",
-        "Bath",
-        "Swimming with the view",
-        "Cooking",
-        "Have a holiday",
-        "Shopping"
-        ].map { Task(name: $0)}
+//    @Published var tasks = [
+//        "Code",
+//        "Sleep",
+//        "Bath",
+//        "Swimming with the view",
+//        "Cooking",
+//        "Have a holiday",
+//        "Shopping"
+//        ].map { Task(name: $0)}
     
        @Published var prioritizedTasks = [
         PrioritizedTasks(
@@ -69,6 +69,10 @@ class TaskStore: ObservableObject {
            ]
        )
     ]
+    
+    func getIndex(for priority: Task.Priority) -> Int {
+        prioritizedTasks.firstIndex { $0.priority == priority }!
+    }
 }
 
 extension TaskStore.PrioritizedTasks {
